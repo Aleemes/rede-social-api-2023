@@ -1,14 +1,13 @@
 import { Post } from "../models/Post.js";
 
-const getAllPosts = async (idPosts) => {
-  const Posts = await Posts.find({ _id: idPosts });
-  return Posts;
+const getAllPost = async (idPosts) => {
+  const post = await Post.find({ _id: idPosts });
+  return post;
 };
 
 const getAllPostsByIdUsuario = async (idUsuario) => {
   return await Post.find({ idUsuario: idUsuario });
 };
-
 
 const getAllComentariosByIdUsuario = async (idUsuario) => {
   return await Post.find({ idUsuario: idUsuario });
@@ -41,7 +40,7 @@ const deletePostById = async (id, idUsuario) => {
 };
 
 export default {
-  getAllPosts,
+  getAllPost,
   getPostById,
   getAllPostsByIdUsuario,
   getAllComentariosByIdUsuario,

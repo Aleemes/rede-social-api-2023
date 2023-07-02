@@ -13,10 +13,6 @@ export const getAllPosts = async (req, res) => {
       const comentarios = await ComentarioService.getAllComentariosByIdPost(req.post._id)
       post.comentarios = comentarios
     } 
-    for (post of listaPosts) {
-      const curtidas = await PostService.getAllCurtidasByIdPost(req.post._id)
-      post.curtidas = curtidas
-    }
     res.send(listaPosts);
   } catch (err) {
     returnError(err, res);
