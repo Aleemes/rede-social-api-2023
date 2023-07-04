@@ -15,17 +15,14 @@ const postSchema = new Schema({
     default: Date.now(),
   },
   curtidas: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0,
   },
   idUsuario: {
     type: String,
     required: true,
   },
-  idComentario: {
-    type: String,
-    required: true,
-  },
+
 });
 
 

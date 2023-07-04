@@ -35,11 +35,10 @@ routes.patch("/posts/:id", authMiddleware, editarPost);
 routes.delete("/posts/:id", authMiddleware, apagarPost);
 
 //Rota dos Comentarios
-routes.get("/comentario", getAllComentarios);
 routes.get("/posts/:idPost/comentarios", getComentarioById);
-routes.post("/comentarios", authMiddleware, createComentario);
-routes.patch("/comentarios/:id", authMiddleware, editarComentario);
-routes.delete("/comentarios/:id", authMiddleware, apagarComentario);
+routes.post("/posts/:idPost/comentarios", authMiddleware, createComentario);
+routes.patch("/posts/:idPost/comentarios/:id", authMiddleware, editarComentario);
+routes.delete("/posts/:idPost/comentarios/:id", authMiddleware, apagarComentario);
 
 //Rotas dos Usuarios
 routes.post("/usuarios", signup);

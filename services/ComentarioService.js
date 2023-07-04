@@ -4,17 +4,15 @@ const getAllComentariosByIdUsuario = async (idUsuario) => {
   return await Comentario.find({ idUsuario: idUsuario });
 };
 
-const getComentarioByIdPost = async (idComentario, idUsuario, idPost) => {
-  const Comentario = await Comentario.findOne({
-    _id: idComentario,
-    idUsuario: idUsuario,
-    idPost: idPost,
+const getAllComentariosByIdPost = async (idPost) => {
+  const comentario = await Comentario.find({
+      idPost: idPost,
   });
-  return Comentario;
+  return comentario;
 };
 
-const createComentario = async (Comentario) => {
-  return await Comentario.create(Comentario);
+const createComentario = async (comentario) => {
+  return await Comentario.create(comentario);
 };
 
 const updateComentario = async (idComentario, edicao, idUsuario) => {
@@ -27,7 +25,7 @@ const deleteComentarioById = async (id, idUsuario) => {
 };
 
 export default {
-  getComentarioByIdPost,
+  getAllComentariosByIdPost,
   getAllComentariosByIdUsuario,
   createComentario,
   updateComentario,

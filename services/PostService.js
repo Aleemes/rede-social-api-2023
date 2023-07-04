@@ -1,8 +1,8 @@
 import { Post } from "../models/Post.js";
 
-const getAllPost = async (idPosts) => {
-  const post = await Post.find({ _id: idPosts });
-  return post;
+const getAllPosts = async () => {
+  const posts = await Post.find();
+  return posts;
 };
 
 const getAllPostsByIdUsuario = async (idUsuario) => {
@@ -13,21 +13,21 @@ const getAllComentariosByIdUsuario = async (idUsuario) => {
   return await Post.find({ idUsuario: idUsuario });
 };
 
-const getAllCurtidasByIdPost = async (idUsuario) => {
-  return await Post.find({ idUsuario: idUsuario });
+const getAllCurtidasByIdPost = async (idPost) => {
+  return await Post.find({ _id: idPost });
 };
 
 const getPostById = async (idPost, idUsuario) => {
-  const Post = await Post.findOne({ _id: idPost, idUsuario: idUsuario });
-  return Post;
+  const post = await Post.findOne({ _id: idPost, idUsuario: idUsuario });
+  return post;
 };
 
-const createPost = async (Post) => {
-  return await Post.create(Post);
+const createPost = async (postData) => {
+  return await Post.create(postData);
 };
 
-const createPostTitulo = async (Post) => {
-  return await Post.create(Post);
+const createPostTitulo = async (postData) => {
+  return await Post.create(postData);
 };
 
 const updatePost = async (idPost, edicao, idUsuario) => {
@@ -40,7 +40,7 @@ const deletePostById = async (id, idUsuario) => {
 };
 
 export default {
-  getAllPost,
+  getAllPosts,
   getPostById,
   getAllPostsByIdUsuario,
   getAllComentariosByIdUsuario,

@@ -49,12 +49,13 @@ export const editarComentario = async (req, res) => {
 };
 
 export const createComentario = async (req, res) => {
-  const Comentario = req.body;
+  const comentario = req.body;
 
   try {
-    Comentario.idUsuario = req.user._id;
-    const ComentarioRes = await ComentarioService.createComentario(Comentario);
-    return res.send(ComentarioRes);
+    comentario.idUsuario = req.user._id;
+    comentario.idPost = req.params.idPost;
+    const comentarioRes = await ComentarioService.createComentario(comentario);
+    return res.send(comentarioRes);
   } catch (err) {
     returnError(err, res);
   }
